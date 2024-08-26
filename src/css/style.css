@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../image/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-y: auto; 
+    height: 100%; 
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
+    min-height: 100vh; 
+    padding: 20px;
+    flex-wrap: wrap; 
+}
+
+.info-section {
+    flex: 1;
+    max-width: 100%; 
+    margin-left: 10%; 
+    margin-bottom: 20px;
+}
+
+
+h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    margin-left: -20px; 
+}
+
+.info-section p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.login-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    max-width: 45%;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 80px 30px 80px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo {
+    width: 130px;
+    margin: 3px 0px 4px 0px;
+}
+
+.login-box h2 {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box p {
+    color: #333;
+}
+
+.qr-code {
+    width: 300px; 
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.links {
+    margin-top: 15px;
+}
+
+.links p {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.links a {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .info-section {
+        margin-left: 0;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .login-section {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .login-box {
+        padding: 20px 40px 30px 40px;
+    }
+
+    .qr-code {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-box {
+        padding: 20px 20px 30px 20px;
+    }
+
+    .qr-code {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 15px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .qr-code {
+        width: 150px;
+        height: 150px;
+    }
+}
+
