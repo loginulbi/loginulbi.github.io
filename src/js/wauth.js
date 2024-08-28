@@ -19,16 +19,11 @@ var refreshbutton=`
 </g></svg>
 `;
 // const auth_ws = 'd3NzOi8vYXV0aC51bGJpLmFjLmlkL3dzL3doYXRzYXV0aC9xcg==';
-<<<<<<< HEAD
 const auth_ws = 'd3NzOi8vZ3cudWxiaS5hYy5pZC93cy93aGF0c2F1dGgvcHVibGlj';
 const keyword = 'aHR0cHM6Ly93YS5tZS82Mjg5OTk3NTAzMDA/dGV4dD13aDR0NWF1dGgw';
-=======
-const auth_ws = 'd3NzOi8vYXV0aC51bGJpLmFjLmlkL2FwaS92Mi93cy9zaXA=';
-const keyword = 'aHR0cHM6Ly93YS5tZS82MjgxMTIwMDAyNzk/dGV4dD13aDR0NWF1dGgw';
->>>>>>> 776612915fc9e66550b6396bb942caec6fb20e7a
 const interval = 30;
 const maxqrwait = 90;
-const tokencookiename = "login";
+const tokencookiename = "secret";
 const tokencookiehourslifetime = 2;
 const id_qr = "whatsauthqr";
 const id_counter = "whatsauthcounter";
