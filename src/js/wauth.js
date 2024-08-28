@@ -24,7 +24,7 @@ const keyword = 'aHR0cHM6Ly93YS5tZS82Mjg5OTk3NTAzMDA/dGV4dD13aDR0NWF1dGgw';
 const interval = 30;
 const maxqrwait = 90;
 const tokencookiename = "login";
-const tokencookiehourslifetime = 2;
+const tokencookiehourslifetime = 18;
 const id_qr = "whatsauthqr";
 const id_counter = "whatsauthcounter";
 
