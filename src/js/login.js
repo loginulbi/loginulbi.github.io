@@ -1,5 +1,3 @@
-import { postJSON } from "./api.js";
-import { endpointAuth } from "./api.js";
 
 export const handleCredentialResponse = async (response) => {
     console.log("Encoded JWT ID token: " + response.credential);
