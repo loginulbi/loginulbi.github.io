@@ -706,8 +706,8 @@ var refreshbutton = `
 </g></svg>
 `;
 // const auth_ws = 'd3NzOi8vYXV0aC51bGJpLmFjLmlkL3dzL3doYXRzYXV0aC9xcg==';
-const auth_ws = "7KCEt1783G92fq7UoTfD32o9chEz77nV31rdvH2XlgE=";
-const keyword = "aHR0cHM6Ly93YS5tZS82MjgxMTIwMDAyNzk/dGV4dD13aDR0NWF1dGgw";
+const auth_ws = 'd3NzOi8vZ3cudWxiaS5hYy5pZC93cy93aGF0c2F1dGgvcHVibGlj';
+const keyword = 'aHR0cHM6Ly93YS5tZS82Mjg5OTk3NTAzMDA/dGV4dD13aDR0NWF1dGgw';
 const interval = 30;
 const maxqrwait = 90;
 const tokencookiename = "secret";
