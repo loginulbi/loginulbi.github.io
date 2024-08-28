@@ -248,9 +248,10 @@ function catcher(result){
     ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
     setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
     setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
-    window.location.replace("/auth");
+    windows.location.replace("/auth");
     // fillformLogin(jsonres);
     // submitLogin();
+    
 
   }
 }
