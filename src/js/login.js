@@ -1,8 +1,6 @@
 import { postJSON } from "./api.js"
 import { endpointAuth } from "./api.js"
 
-script.src = "https://accounts.google.com/gsi/client"
-
 export const login = async (req, res) => {
         console.log("Encoded JWT ID token: " + res.credential);
         try {
