@@ -260,7 +260,4 @@ function catcher(result) {
 
 
 
-main(){
-  deleteCookie(tokencookiename);
-  deleteCookie("ua");
-};
+main();
