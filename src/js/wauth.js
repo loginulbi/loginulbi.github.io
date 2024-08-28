@@ -241,13 +241,17 @@ function submitLogin(){
   }
 }
 
-function catcher(result){
-  if (result.length > 2){
+function catcher(result) {
+  if (result.length > 2) {
     jsonres = JSON.parse(result);
     console.log("catcher runner");
-    ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
-    setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
-    setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
+    // Gabungkan atau ganti token login dengan secret
+    const tokenSecret = jsonres.login; 
+    // Encode informasi user_id dan user_name
+    ua = btoa(jsonres.user_id + "-" + jsonres.user_name);
+    // Simpan token yang diinginkan ke dalam cookie 'secret'
+    setCookieWithExpireHourSubDomain(tokencookiename, tokenSecret, tokencookiehourslifetime);
+    setCookieWithExpireHourSubDomain("ua", ua, tokencookiehourslifetime);
 
     console.log("Redirecting to: https://login.ulbi.ac.id/auth/");
     window.location.replace("https://login.ulbi.ac.id/auth/");
