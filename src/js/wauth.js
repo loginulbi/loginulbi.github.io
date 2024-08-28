@@ -241,29 +241,19 @@ function submitLogin(){
   }
 }
 
-function catcher(result) {
-  if (result.length > 2) {
-    const jsonres = JSON.parse(result);
+function catcher(result){
+  if (result.length > 2){
+    jsonres = JSON.parse(result);
     console.log("catcher runner");
-    const ua = btoa(jsonres.user_id + "-" + jsonres.user_name);
-    setCookieWithExpireHourSubDomain(
-      tokencookiename,
-      jsonres.login,
-      tokencookiehourslifetime
-    );
-    setCookieWithExpireHourSubDomain("ua", ua, tokencookiehourslifetime);
+    ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
+    setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
+    setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
+    window.location.replace("https://euis.ulbi.ac.id/home/");
+    // fillformLogin(jsonres);
+    // submitLogin();
 
-    window.location.replace("https://login.ulbi.ac.id/auth/");
-  } else {
-    window.location.replace("../../404.html");
   }
 }
 
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-  return null;
-}
 
 main();
