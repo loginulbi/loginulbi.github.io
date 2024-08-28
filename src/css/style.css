@@ -4,32 +4,31 @@ body {
     background: url('../image/background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
-    overflow-y: auto; 
-    height: 100%; 
+    overflow-y: auto;
+    height: 100%;
 }
 
 .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start; 
-    min-height: 100vh; 
+    align-items: flex-start;
+    min-height: 100vh;
     padding: 20px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 .info-section {
     flex: 1;
-    max-width: 100%; 
-    margin-left: 10%; 
+    max-width: 100%;
+    margin-left: 10%;
     margin-bottom: 20px;
 }
-
 
 h4 {
     color: #fff;
     margin-bottom: 20px;
-    margin-left: -20px; 
+    margin-left: -20px;
 }
 
 .info-section p {
@@ -90,7 +89,7 @@ a:hover {
 }
 
 .qr-code {
-    width: 300px; 
+    width: 300px;
     height: 300px;
     margin-bottom: 20px;
 }
@@ -111,6 +110,16 @@ a:hover {
     color: #333;
     text-decoration: none;
 }
+
+.g_id_onload {
+    margin-top: 20px;
+}
+  
+.g_id_signin button {
+    border-radius: 8px;
+    font-size: 16px;
+}
+  
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -167,4 +176,3 @@ a:hover {
         height: 150px;
     }
 }
-
