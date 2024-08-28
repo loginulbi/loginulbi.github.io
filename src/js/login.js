@@ -24,7 +24,7 @@ export const handleCredentialResponse = async (response) => {
                 let userInfo = data.user; // Extract userInfo from the response
                 console.log(JSON.stringify(userInfo));
                 Swal.fire({
-                    icon: 'error',
+                    icon: 'info',
                     title: 'Authentication Failed',
                     text: 'Please check your credentials and try again.',
                     showConfirmButton: true,
@@ -38,7 +38,7 @@ export const handleCredentialResponse = async (response) => {
     } catch (error) {
         console.error(error);
         Swal.fire({
-            icon: 'error',
+            icon: 'info',
             title: 'An Error Occurred',
             text: 'An error occurred while trying to login. Please try again later.',
         });
