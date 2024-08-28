@@ -11,7 +11,7 @@ export const handleCredentialResponse = async (response) => {
         });
         const data = await result.json();
         if (result.ok) {  // Changed from res.ok to result.ok
-            console.log(data);
+            console.log(JSON.stringify(data, null, 2));
             Swal.fire({
                 icon: 'success',
                 title: 'Welcome to ULBI',
@@ -24,7 +24,7 @@ export const handleCredentialResponse = async (response) => {
         } else {
             if (result.status === 401) {  // Changed from res.status to result.status
                 let userInfo = data.user; // Extract userInfo from the response
-                console.log(userInfo);
+                console.log(JSON.stringify(userInfo));
                 Swal.fire({
                     icon: 'error',
                     title: 'Authentication Failed',
