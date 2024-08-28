@@ -23,7 +23,7 @@ const auth_ws = 'd3NzOi8vZ3cudWxiaS5hYy5pZC93cy93aGF0c2F1dGgvcHVibGlj';
 const keyword = 'aHR0cHM6Ly93YS5tZS82Mjg5OTk3NTAzMDA/dGV4dD13aDR0NWF1dGgw';
 const interval = 30;
 const maxqrwait = 90;
-const tokencookiename = "secret";
+const tokencookiename = "login";
 const tokencookiehourslifetime = 2;
 const id_qr = "whatsauthqr";
 const id_counter = "whatsauthcounter";
@@ -241,17 +241,13 @@ function submitLogin(){
   }
 }
 
-function catcher(result) {
-  if (result.length > 2) {
+function catcher(result){
+  if (result.length > 2){
     jsonres = JSON.parse(result);
     console.log("catcher runner");
-    // Gabungkan atau ganti token login dengan secret
-    const tokenSecret = jsonres.login; 
-    // Encode informasi user_id dan user_name
-    ua = btoa(jsonres.user_id + "-" + jsonres.user_name);
-    // Simpan token yang diinginkan ke dalam cookie 'secret'
-    setCookieWithExpireHourSubDomain(tokencookiename, tokenSecret, tokencookiehourslifetime);
-    setCookieWithExpireHourSubDomain("ua", ua, tokencookiehourslifetime);
+    ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
+    setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
+    setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
 
     console.log("Redirecting to: https://login.ulbi.ac.id/auth/");
     window.location.replace("https://login.ulbi.ac.id/auth/");
