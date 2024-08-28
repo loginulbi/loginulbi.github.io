@@ -4,7 +4,7 @@ import { endpointAuth } from "./api.js";
 export const handleCredentialResponse = async (response) => {
     console.log("Encoded JWT ID token: " + response.credential);
     try {
-        const result = await fetch(endpointAuth, {
+        const result = await fetch("https://ira.ulbi.ac.id/auth/users", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token: response.credential })
