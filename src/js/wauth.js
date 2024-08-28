@@ -248,13 +248,12 @@ function catcher(result){
     ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
     setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
     setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
-    window.location.replace("https://login.ulbi.ac.id/auth/");
-    // fillformLogin(jsonres);
-    // submitLogin();
-    
 
+    console.log("Redirecting to: https://login.ulbi.ac.id/auth/");
+    window.location.replace("https://login.ulbi.ac.id/auth/");
   }
 }
+
 
 
 main();
