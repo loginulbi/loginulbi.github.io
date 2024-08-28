@@ -76,7 +76,9 @@
     </form>
 
     <script src="src/js/wauth.js"></script>
-    <script type="module", src="src/js/login.js"></script>
-</body>
+    <script type="module">
+        import { handleCredentialResponse } from "./js/login.js";
+        window.handleCredentialResponse = handleCredentialResponse;
+    </script></body>
 
 </html>
