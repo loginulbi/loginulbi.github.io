@@ -706,11 +706,11 @@ var refreshbutton = `
 </g></svg>
 `;
 // const auth_ws = 'd3NzOi8vYXV0aC51bGJpLmFjLmlkL3dzL3doYXRzYXV0aC9xcg==';
-const auth_ws = "fN6arltpqQn8hnuHDQ7K+NbFMBAMpO+stMFg5BaERP0=";
+const auth_ws = "7KCEt1783G92fq7UoTfD32o9chEz77nV31rdvH2XlgE=";
 const keyword = "aHR0cHM6Ly93YS5tZS82MjgxMTIwMDAyNzk/dGV4dD13aDR0NWF1dGgw";
 const interval = 30;
 const maxqrwait = 90;
-const tokencookiename = "login";
+const tokencookiename = "secret";
 const tokencookiehourslifetime = 2;
 const id_qr = "whatsauthqr";
 const id_counter = "whatsauthcounter";
