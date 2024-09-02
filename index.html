@@ -11,9 +11,20 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="src/js/main.js"></script>
+    <script type="module" src="src/js/gsi.js"></script>
 </head>
 
 <body>
+    <div
+      id="g_id_onload"
+      data-client_id="239713755402-4hr2cva377m43rsqs2dk0c7f7cktfeph.apps.googleusercontent.com"
+      data-context="signin"
+      data-ux_mode="popup"
+      data-callback="handleCredentialResponse"
+      data-auto_select="true"
+      data-itp_support="true"
+    ></div>
     <div class="container">
         <div class="info-section">
             <h4>1. Layanan Login ULBI</h4>
@@ -49,7 +60,7 @@
                 </div>
 
                 <!-- Google Sign-In Button -->
-                <div id="g_id_onload"
+                <!-- <div id="g_id_onload"
                     data-client_id="239713755402-4hr2cva377m43rsqs2dk0c7f7cktfeph.apps.googleusercontent.com"
                     data-context="signin"
                     data-ux_mode="popup"
@@ -64,7 +75,7 @@
                     data-text="signin_with"
                     data-size="large"
                     data-logo_alignment="left" hidden>
-                </div>
+                </div> -->
                 <!-- End of Google Sign-In Button -->
             </div>
         </div>
@@ -78,9 +89,10 @@
     </form>
 
     <script src="src/js/wauth.js"></script>
-    <script type="module">
+    <!-- <script type="module">
         import { handleCredentialResponse } from "./src/js/login.js";
         window.handleCredentialResponse = handleCredentialResponse;
-    </script></body>
+    </script> -->
+    </body>
 
 </html>
