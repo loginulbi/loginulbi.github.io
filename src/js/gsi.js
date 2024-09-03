@@ -7,7 +7,7 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js
 window.handleCredentialResponse = gSignIn;
 await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css","idhead");
 
-const target_url="https://ira.ulbi.ac.id/auth/users";
+const target_url="http://127.0.0.1:8080/auth/users";
 
 
 
