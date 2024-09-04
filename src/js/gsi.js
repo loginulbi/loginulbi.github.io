@@ -1,13 +1,27 @@
-import {setCookieWithExpireHour} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/cookie.js";
-import {postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
-import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/url.js";
-import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import { setCookieWithExpireHour } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/cookie.js";
+import { postJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
+import { redirect } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/url.js";
+import { addCSSIn } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
 
 window.handleCredentialResponse = gSignIn;
-await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css","idhead");
+await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css", "idhead");
 
-const target_url="https://ira.ulbi.ac.id/auth/users";
+const target_url = "https://ira.ulbi.ac.id/auth/users";
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let cookieArray = decodedCookie.split(';');
+
+    for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) === 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
+}
 
 
 
@@ -41,7 +55,13 @@ function responsePostFunction(response) {
             showConfirmButton: false,
             timer: 2000,
         }).then(() => {
-            redirect("https://login.ulbi.ac.id/auth/");
+            const redirectUrl = getCookie("redirect");
+            console.log(redirectUrl);
+            if (redirectUrl) {
+                redirect(redirectUrl);
+            } else {
+                redirect("https://login.ulbi.ac.id/");
+            }
         });
     } else {
         console.error("Login failed:", response.data?.message || "Unknown error");
