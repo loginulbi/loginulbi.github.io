@@ -41,7 +41,7 @@ function responsePostFunction(response) {
             showConfirmButton: false,
             timer: 2000,
         }).then(() => {
-            redirect("/dashboard");
+            redirect("https://login.ulbi.ac.id/auth/");
         });
     } else {
         console.error("Login failed:", response.data?.message || "Unknown error");
