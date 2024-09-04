@@ -37,7 +37,7 @@ function responsePostFunction(response) {
         Swal.fire({
             icon: "success",
             title: "Welcome!",
-            text: `Hello, ${response.data.user?.name || "User"}!`,
+            text: `Hello, ${response.data.user?.nama || "User"}!`,
             showConfirmButton: false,
             timer: 2000,
         }).then(() => {
