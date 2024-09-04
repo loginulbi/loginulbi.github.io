@@ -50,7 +50,7 @@ function responsePostFunction(response) {
             title: "Login Failed",
             text: response.data?.message || "An unknown error occurred.",
         }).then(() => {
-            redirect("/signin");
+            redirect("/");
         });
     }
 }
