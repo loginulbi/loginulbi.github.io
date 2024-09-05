@@ -40,55 +40,74 @@ async function gSignIn(response) {
   }
 }
 
+function showLoader() {
+  document.querySelector('.loader-layout').classList.remove('hidden');
+}
+
+function hideLoader() {
+  document.querySelector('.loader-layout').classList.add('hidden');
+}
+
 function responsePostFunction(response) {
+  // Show the loader
+  showLoader();
+
   if (response.status === 200 && response.data) {
-    // Menyimpan token dalam cookie
-    setCookieWithExpireHour("login", response.data.token, 18);
-
-    // Menampilkan greeting menggunakan SweetAlert
-    Swal.fire({
-      icon: "success",
-      title: "Welcome!",
-      text: `Hello, ${response.data.user?.nama || "User"}!`,
-      showConfirmButton: false,
-      timer: 2000,
-    }).then(() => {
-      redirect("https://login.ulbi.ac.id/auth/preloader.html");
-
+      // Simulate a delay (if needed) to show the loader effect
       setTimeout(() => {
-        const login = getCookie("login");
-        const redirectUrl = getCookie("redirect");
+          // Menyimpan token dalam cookie
+          setCookieWithExpireHour("login", response.data.token, 18);
 
-        if (!login) {
+          // Menampilkan greeting menggunakan SweetAlert
           Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            text: "An error occurred while trying to log in. Please try again.",
+              icon: "success",
+              title: "Welcome!",
+              text: `Hello, ${response.data.user?.nama || "User"}!`,
+              showConfirmButton: false,
+              timer: 2000,
           }).then(() => {
-            redirect("/");
+              setTimeout(() => {
+                  const login = getCookie("login");
+                  const redirectUrl = getCookie("redirect");
+
+                  if (!login) {
+                      Swal.fire({
+                          icon: "error",
+                          title: "Login Failed",
+                          text: "An error occurred while trying to log in. Please try again.",
+                      }).then(() => {
+                          redirect("/");
+                      });
+                  } else if (redirectUrl) {
+                      Swal.fire({
+                          icon: "error",
+                          title: "Login Failed",
+                          text: "An error occurred while trying to log in. Please try again.",
+                      }).then(() => {
+                          redirect(redirectUrl);
+                      });
+                  } else {
+                      console.error(
+                          "Login failed:",
+                          response.data?.message || "Unknown error"
+                      );
+                      Swal.fire({
+                          icon: "error",
+                          title: "Login Failed",
+                          text: response.data?.message || "An unknown error occurred.",
+                      }).then(() => {
+                          redirect("/");
+                      });
+                  }
+
+                  // Hide the loader
+                  hideLoader();
+              }, 2000); // Adjust the delay as needed
           });
-        } else if (redirectUrl) {
-          Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            text: "An error occurred while trying to log in. Please try again.",
-          }).then(() => {
-            redirect(redirectUrl);
-          });
-        } else {
-          console.error(
-            "Login failed:",
-            response.data?.message || "Unknown error"
-          );
-          Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            text: response.data?.message || "An unknown error occurred.",
-          }).then(() => {
-            redirect("/");
-          });
-        }
-      });
-    });
+      }, 2000); // Adjust the delay to match your animation duration
+  } else {
+      // Handle non-200 responses
+      hideLoader();
   }
 }
+
