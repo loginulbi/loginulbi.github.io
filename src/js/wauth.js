@@ -249,8 +249,9 @@ function catcher(result){
     setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
     setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
 
-    console.log("Redirecting to: https://login.ulbi.ac.id/auth/");
-    window.location.replace("https://login.ulbi.ac.id/auth/");
+    console.log("Redirecting to: "+jsonres.redirect);
+    const redirectUrl = getCookie("redirect");
+    window.location.replace(redirectUrl);
   }
 }
 

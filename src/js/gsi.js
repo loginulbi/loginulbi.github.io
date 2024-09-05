@@ -55,11 +55,13 @@ function responsePostFunction(response) {
             showConfirmButton: false,
             timer: 2000,
         }).then(() => {
-            setCookieWithExpireHour("login", response.data.token, 18);
+            redirect("https://login.ulbi.ac.id/auth/preloader.html");
+            const login = getCookie("login");
             const redirectUrl = getCookie("redirect");
             console.log(redirectUrl);
             if (redirectUrl) {
                 redirect(redirectUrl);
+                console.log(login);
             } else {
                 redirect("https://login.ulbi.ac.id/");
             }
