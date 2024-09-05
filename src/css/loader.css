@@ -1,78 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
-   
-body
-{
-    margin: 0;
+.loader-layout {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); 
     display: flex;
-    font-family: 'Belanosima', sans-serif;
-    
-    background-color: #fff;
-    color: #db5c1b;
-}
-.loader-layout
-{
-    margin: auto;
-    display: flex;
-    width: 250px;
-}
-.loader-grid
-{
-    margin: auto;
-    margin-right: 1px;
-    width: 50px;
-    height: 50px;
-    display: grid;
-    gap: 0px;
-    grid-template-columns: auto auto;
-    animation: rotate 2s linear 0s infinite;
-}
-.item1
-{
-    margin: auto;
-    width: 15px;
-    height: 15px;
-    border-radius: 0%;
-    background-color: #db5c1b;
-}
-.item2
-{
-    margin: auto;
-    width: 15px;
-    height: 15px;
-    border-radius: 0%;
-        background-color: #db5c1b;
-}
-.item3
-{
-    margin: auto;
-    width: 15px;
-    height: 15px;
-    border-radius: 0%;
-        background-color: #db5c1b;
-}
-.item4
-{
-    margin: auto;
-    width: 15px;
-    height: 15px;
-    border-radius: 0%;
-        background-color: #db5c1b;
-}
-@keyframes rotate 
-{
-    0%{rotate: 0deg; transform: scale(0.6);}
-    50%{ rotate: 100deg; transform: scale(0.4);}    
-    100%{rotate: 360deg; transform: scale(0.6);}
-}
-.loader-loader-h
-{
-    margin: auto;
-    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
 .hidden {
     display: none;
 }
-        
+
+.loader-grid {
+    display: grid;
+    gap: 0;
+    grid-template-columns: auto auto;
+    width: 50px;
+    height: 50px;
+    animation: rotate 2s linear infinite;
+}
+
+.item1, .item2, .item3, .item4 {
+    width: 15px;
+    height: 15px;
+    border-radius: 0;
+    background-color: #db5c1b;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg) scale(0.6); }
+    50% { transform: rotate(100deg) scale(0.4); }
+    100% { transform: rotate(360deg) scale(0.6); }
+}
+
+.loader-loader-h {
+    margin-left: 5px;
+    color: #db5c1b; /* Match the color of the loader items */
+    font-family: 'Belanosima', sans-serif;
+}
