@@ -48,6 +48,11 @@ function hideLoader() {
   document.querySelector('.loader-layout').classList.add('hidden');
 }
 
+function setCookieWithSubDomain(name, value, hours, domain = '') {
+  const expires = new Date(Date.now() + hours * 60 * 60 * 1000).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/;${domain ? ' domain=' + domain : ''}`;
+}
+
 function responsePostFunction(response) {
   // Show the loader
   showLoader();
@@ -55,6 +60,7 @@ function responsePostFunction(response) {
   if (response.status === 200 && response.data) {
     // Save token in cookie
     setCookieWithExpireHour("login", response.data.token, 18);
+    setCookieWithSubDomain("login", response.data.token, 18);
 
     // Show success message and handle redirection
     Swal.fire({
