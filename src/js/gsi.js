@@ -48,9 +48,9 @@ function hideLoader() {
   document.querySelector('.loader-layout').classList.add('hidden');
 }
 
-function setCookieWithSubDomain(name, value, hours, domain = '') {
+function setCookieWithSubDomain(name, value, hours, domain = '.ulbi.ac.id') {
   const expires = new Date(Date.now() + hours * 60 * 60 * 1000).toUTCString();
-  document.cookie = `${name}=${value}; expires=${expires}; path=/;${domain ? ' domain=' + domain : ''}`;
+  document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=${domain}; secure; SameSite=None`;
 }
 
 function responsePostFunction(response) {
@@ -60,7 +60,7 @@ function responsePostFunction(response) {
   if (response.status === 200 && response.data) {
     // Save token in cookie
     setCookieWithExpireHour("login", response.data.token, 18);
-    setCookieWithSubDomain("login", response.data.token, 18);
+    setCookieWithSubDomain("login", response.data.token, 18, '.ulbi.ac.id');
 
     // Show success message and handle redirection
     Swal.fire({
