@@ -67,7 +67,7 @@ function responsePostFunction(response) {
       icon: "success",
       title: "Welcome!",
       text: `Hello, ${response.data.user?.nama || "User"}!`,
-      showConfirmButton: false,
+      showConfirmButton: true,
       timer: 2000,
     }).then(() => {
       // Simulate a delay (if needed) to show the loader effect
