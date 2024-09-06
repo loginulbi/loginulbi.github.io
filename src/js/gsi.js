@@ -53,61 +53,51 @@ function responsePostFunction(response) {
   showLoader();
 
   if (response.status === 200 && response.data) {
+    // Save token in cookie
+    setCookieWithExpireHour("login", response.data.token, 18);
+
+    // Show success message and handle redirection
+    Swal.fire({
+      icon: "success",
+      title: "Welcome!",
+      text: `Hello, ${response.data.user?.nama || "User"}!`,
+      showConfirmButton: false,
+      timer: 2000,
+    }).then(() => {
       // Simulate a delay (if needed) to show the loader effect
       setTimeout(() => {
-          // Menyimpan token dalam cookie
-          setCookieWithExpireHour("login", response.data.token, 18);
+        // Check for token and redirect URL
+        const login = getCookie("login");
+        const redirectUrl = getCookie("redirect");
 
-          // Menampilkan greeting menggunakan SweetAlert
+        if (login && redirectUrl) {
+          // Redirect to the URL in the cookie
+          // Ensure cookies are sent to the subdomain if needed
+          redirect(redirectUrl);
+        } else {
+          // Stay on the login page if redirect URL or token is not present
           Swal.fire({
-              icon: "success",
-              title: "Welcome!",
-              text: `Hello, ${response.data.user?.nama || "User"}!`,
-              showConfirmButton: false,
-              timer: 2000,
+            icon: "info",
+            title: "Login Failed",
+            text: "An error occurred while trying to log in. Please try again.",
           }).then(() => {
-              setTimeout(() => {
-                  const login = getCookie("login");
-                  const redirectUrl = getCookie("redirect");
-                  redirect(redirectUrl)
-
-                  if (!login) {
-                      Swal.fire({
-                          icon: "error",
-                          title: "Login Failed",
-                          text: "An error occurred while trying to log in. Please try again.",
-                      }).then(() => {
-                          redirect("/");
-                      });
-                  } else if (!redirectUrl) {
-                      Swal.fire({
-                          icon: "error",
-                          title: "Login Failed",
-                          text: "An error occurred while trying to log in. Please try again.",
-                      }).then(() => {
-                          redirect("/");
-                      });
-                  } else {
-                      console.error(
-                          "Login failed:",
-                          response.data?.message || "Unknown error"
-                      );
-                      Swal.fire({
-                          icon: "error",
-                          title: "Login Failed",
-                          text: response.data?.message || "An unknown error occurred.",
-                      }).then(() => {
-                          redirect("/");
-                      });
-                  }
-
-                  // Hide the loader
-                  hideLoader();
-              }, 2000); // Adjust the delay as needed
+            redirect("/");
           });
+        }
+
+        // Hide the loader
+        hideLoader();
       }, 2000); // Adjust the delay to match your animation duration
+    });
   } else {
-      // Handle non-200 responses
-      hideLoader();
+    // Handle non-200 responses
+    hideLoader();
+
+    // Optionally show an error message if needed
+    Swal.fire({
+      icon: "error",
+      title: "Login Failed",
+      text: response.data?.message || "An unknown error occurred.",
+    });
   }
 }
