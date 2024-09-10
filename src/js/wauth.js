@@ -241,14 +241,6 @@ function submitLogin(){
   }
 }
 
-function showLoader() {
-  document.querySelector('.loader-layout').classList.remove('hidden');
-}
-
-function hideLoader() {
-  document.querySelector('.loader-layout').classList.add('hidden');
-}
-
 function catcher(result){
   if (result.length > 2){
     jsonres = JSON.parse(result);
@@ -259,23 +251,7 @@ function catcher(result){
 
     console.log("Redirecting to: "+jsonres.redirect);
     const redirectUrl = getCookie("redirect");
-    if (redirectUrl) {
-      console.log("Redirecting to: " + jsonres.redirect);
-      window.location.replace(redirectUrl);
-    } else {
-      console.log("Redirect URL is empty or missing. Displaying SweetAlert.");
-      showLoader();
-      // Example: document.getElementById('preloader').style.display = 'block';
-
-      Swal.fire({
-        icon: 'warning',
-        title: 'Maaf',
-        text: 'Kamu harus login dari sistem',
-        confirmButtonText: 'OK'
-      }).then(() => {
-        hideLoader();
-      })
-    }
+    window.location.replace(redirectUrl);
   }
 }
 
