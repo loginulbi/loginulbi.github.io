@@ -250,17 +250,40 @@ function hideLoader() {
 
 
 function catcher(result){
-  if (result.length > 2){
-    jsonres = JSON.parse(result);
-    console.log("catcher runner");
-    ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
-    setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
-    setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
-    window.location.replace("https://helpdeskulbi.github.io/");
-    // fillformLogin(jsonres);
-    // submitLogin();
+  console.log("Fungsi catcher mengeluarkan hasil: ", result);
 
+  if (result.length > 2){
+    console.log("length lebih dari 2");
+
+    try {
+      // Parsing JSON
+      let jsonres = JSON.parse(result);
+      console.log("JSON berhasil di parse: ", jsonres);
+
+      // Menggabungkan dan encode user_id dan user_name
+      let ua = btoa(jsonres.user_id + "-" + jsonres.user_name);
+      console.log("ua: ", ua);
+
+      // Menyimpan cookie login
+      setCookieWithExpireHourSubDomain(tokencookiename, jsonres.login, tokencookiehourslifetime);
+      console.log("Set cookie:", tokencookiename, "dengan value:", jsonres.login, "berlaku selama", tokencookiehourslifetime);
+
+      // Menyimpan cookie ua
+      setCookieWithExpireHourSubDomain("ua", ua, tokencookiehourslifetime);
+      console.log("Set cookie: ua dengan value:", ua, "berlaku selama", tokencookiehourslifetime);
+
+      // Redirect ke halaman home
+      window.location.replace("https://helpdeskulbi.github.io/");
+      console.log("Redirect ke halaman home");
+
+    } catch (error) {
+      console.error("JSON parsing error:", error);
+    }
+
+  } else {
+    console.log("length kurang dari 2, proses tidak dijalankan");
   }
 }
+
 
 main();
