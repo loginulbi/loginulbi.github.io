@@ -264,13 +264,13 @@ function catcher(result){
       console.log("Set cookie: ua dengan value:", ua, "berlaku selama", tokencookiehourslifetime);
 
       // Redirect ke halaman home
-      window.location.replace("https://euis.ulbi.ac.id/home/");
+      window.location.replace("404.html");
       console.log("Redirect ke halaman home");
 
     } catch (error) {
       console.error("JSON parsing error:", error);
     }
-    
+
   } else {
     console.log("length kurang dari 2, proses tidak dijalankan");
   }
