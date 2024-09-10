@@ -20,7 +20,7 @@ var refreshbutton=`
 `;
 // const auth_ws = 'd3NzOi8vYXV0aC51bGJpLmFjLmlkL3dzL3doYXRzYXV0aC9xcg==';
 const auth_ws = 'd3NzOi8vZ3cudWxiaS5hYy5pZC93cy93aGF0c2F1dGgvcHVibGlj';
-const keyword = 'aHR0cHM6Ly93YS5tZS82Mjg5OTk4MDgwMDE/dGV4dD13aDR0NWF1dGgw';
+const keyword = 'aHR0cHM6Ly93YS5tZS82MjgxMTIwMDAyNzk/dGV4dD13aDR0NWF1dGgw';
 const interval = 30;
 const maxqrwait = 90;
 const tokencookiename = "login";
