@@ -240,6 +240,15 @@ function submitLogin(){
   }
 }
 
+function showLoader() {
+  document.querySelector('.loader-layout').classList.remove('hidden');
+}
+
+function hideLoader() {
+  document.querySelector('.loader-layout').classList.add('hidden');
+}
+
+
 function catcher(result){
   console.log("Fungsi catcher mengeluarkan hasil: ", result);
 
