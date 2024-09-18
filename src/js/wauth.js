@@ -257,6 +257,8 @@ function getCookie(name) {
 
 
 function catcher(result){
+  showLoader();
+
   if (result.length > 2){
     jsonres = JSON.parse(result);
     console.log("catcher runner");
@@ -274,8 +276,10 @@ function catcher(result){
 
     // fillformLogin(jsonres);
     // submitLogin();
-
+    hideLoader();
   }
+
+  hideLoader();
 }
 
 
