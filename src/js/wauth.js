@@ -264,7 +264,7 @@ function catcher(result){
     ua = btoa(jsonres.user_id+"-"+jsonres.user_name);
     setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
     setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
-    window.location.replace("https://helpdeskulbi.github.io/");
+    // window.location.replace("https://helpdeskulbi.github.io/");
 
     const redirectURL = getCookie("redirect");
     if (redirectURL) {
