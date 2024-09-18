@@ -248,6 +248,13 @@ function hideLoader() {
   document.querySelector('.loader-layout').classList.add('hidden');
 }
 
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 
 function catcher(result){
   if (result.length > 2){
@@ -257,6 +264,14 @@ function catcher(result){
     setCookieWithExpireHourSubDomain(tokencookiename,jsonres.login,tokencookiehourslifetime);
     setCookieWithExpireHourSubDomain("ua",ua,tokencookiehourslifetime);
     window.location.replace("https://helpdeskulbi.github.io/");
+
+    const redirectURL = getCookie("redirect");
+    if (redirectURL) {
+      window.location.replace(redirectURL);
+    } else {
+      window.location.replace("https://login.ulbi.ac.id");
+    }
+
     // fillformLogin(jsonres);
     // submitLogin();
 
