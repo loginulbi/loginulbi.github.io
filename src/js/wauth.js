@@ -1,3 +1,12 @@
+import { addCSSIn } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+
+window.handleCredentialResponse = gSignIn;
+await addCSSIn(
+  "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",
+  "idhead"
+);
+
 // /*config in html login page*/
 const id_user = 'user_name';
 const id_pass = 'user_pass';
