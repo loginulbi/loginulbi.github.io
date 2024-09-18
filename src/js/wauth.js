@@ -268,13 +268,6 @@ function catcher(result){
 
     const redirectURL = getCookie("redirect");
     if (redirectURL) {
-      Swal.fire({
-        icon: "success",
-        title: "Welcome!",
-        text: `Hello, ${response.data.user?.nama || "User"}!`,
-        showConfirmButton: true,
-        timer: 2000,
-      });
       showLoader();
       window.location.replace(redirectURL);
     } else {
