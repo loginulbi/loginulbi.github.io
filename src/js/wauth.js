@@ -266,7 +266,7 @@ function getCookie(name) {
 
 
 function catcher(result){
-  showLoader();
+
   if (result.length > 2){
     jsonres = JSON.parse(result);
     console.log("catcher runner");
@@ -284,6 +284,7 @@ function catcher(result){
         showConfirmButton: true,
         timer: 2000,
       });
+      showLoader();
       window.location.replace(redirectURL);
     } else {
       window.location.replace("https://login.ulbi.ac.id");
