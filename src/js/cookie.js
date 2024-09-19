@@ -12,7 +12,7 @@ if (!redirectUrl) {
         allowEscapeKey: false, 
         allowEnterKey: false, 
     }).then((result) => {
-        if (result.isConfirm) {
+        if (result.isConfirmed) {
             window.location.href = "http://login.ulbi.ac.id/page/";
         }
     })
