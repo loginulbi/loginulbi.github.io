@@ -17,9 +17,13 @@
 
     <!-- Cookie redirect -->
     <script src="src/js/cookie.js" type="module"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+
     <div
       id="g_id_onload"
       data-client_id="239713755402-4hr2cva377m43rsqs2dk0c7f7cktfeph.apps.googleusercontent.com"
@@ -43,13 +47,13 @@
     <!-- preloader end -->
 
     <div class="container">
+        <!-- div kiri -->
         <div class="info-section">
             <h4>1. Layanan Login ULBI</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas doloremque provident laudantium vel
-                odit a quasi sint placeat nesciunt exercitationem.</p>
+            <p>Layanan login ULBI memungkinkan pengguna untuk mengakses berbagai sistem dan aplikasi kampus. Dengan login, pengguna dapat memanfaatkan fasilitas yang disediakan berdasarkan hak akses yang dimiliki.</p>
 
             <h4>2. Daftar Akun</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio.:</p>
+            <p>Proses pendaftaran akun diperuntukkan bagi:</p>
             <ul>
                 <li>Mahasiswa</li>
                 <li>Staf/Dosen yang memiliki NIP</li>
@@ -57,23 +61,26 @@
             </ul>
 
             <h4>3. Lupa Password</h4>
-            <p>Jika lupa password, <a href="#">silahkan klik link berikut.</a></p>
+            <p>Jika Anda lupa password akun ULBI hubungi <a href="https://wa.me/6282184952585" class="text-blue-500 hover:underline">Admin</a> untuk melakukan proses reset password dan mengatur ulang kredensial Anda.</p>
 
             <h4>4. Peringatan Keamanan</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, libero.</p>
+            <p>Selalu berhati-hati dalam menggunakan akun ULBI Anda. Jangan pernah membagikan informasi login kepada pihak lain. Pastikan untuk logout setelah selesai menggunakan layanan, terutama di perangkat publik atau yang tidak aman.</p>
         </div>
 
+        <!-- div kanan -->
         <div class="login-section">
             <div class="login-box">
-                <img src="src/image/ulbi_logo.png" alt="Logo ULBI" class="logo">
+                <img src="src/image/ulbi_logo.png" alt="Logo ULBI" class="mx-auto w-24 h-24">
                 <h2>Masuk</h2>
+
                 <div id="whatsauthqr">
                     <div></div>
                 </div>
-                <p id="whatsauthcounter">2</p>
+                <p id="whatsauthcounter" class="mt-4 text-gray-600">2</p>
+
                 <div class="links">
                     <p>Pastikan waktu hitung mundur cukup untuk melakukan scan dan kirim token</p>
-                    <a href="https://whatsauth.my.id/">WhatsAuth</a>
+                    <a href="https://whatsauth.my.id/" class="text-blue-500 hover:underline hover:text-blue-700">WhatsAuth</a>
                 </div>
 
                 <!-- Google Sign-In Button -->
@@ -110,6 +117,6 @@
         import { handleCredentialResponse } from "./src/js/login.js";
         window.handleCredentialResponse = handleCredentialResponse;
     </script> -->
-    </body>
+</body>
 
 </html>

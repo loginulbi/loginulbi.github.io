@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('../image/background.jpg') no-repeat center center fixed;
+    background: url('../image/background2.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
     overflow-y: auto;
@@ -27,24 +27,21 @@ body {
 
 h4 {
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
     margin-left: -20px;
+    font-weight: bolder;
 }
 
 .info-section p {
     color: #ccc;
     line-height: 1.6;
-    margin-bottom: 20px;
     font-size: 14px;
 }
 
 ul {
     list-style: none;
     padding: 0;
-}
-
-ul li {
-    margin-bottom: 10px;
 }
 
 a {
